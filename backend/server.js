@@ -16,9 +16,9 @@ app.use((req, res, next) => {
   next()
 })
 
-const conn_str = 'mongodb+srv://patrickantonio796:patrickantonio123@cluster0.x12smqz.mongodb.net/?retryWrites=true&w=majority'
+
 // Connect to MongoDB Atlas
-mongoose.connect(conn_str, {
+mongoose.connect(process.env.MONGO_URL, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })
@@ -30,8 +30,8 @@ mongoose.connect(conn_str, {
 });
 
 // routes
-app.use('/api/tasks', studentRoutes);
-app.use('/api/tasks', teacherRoutes);
+app.use('/student', studentRoutes);
+app.use('/teacher', teacherRoutes);
 
 // listen for requests
 app.listen(process.env.PORT, () => {
