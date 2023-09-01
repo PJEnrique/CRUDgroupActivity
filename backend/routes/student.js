@@ -23,7 +23,7 @@ router.get('/student/get', async (req, res) => {
 });
 
 // Update a student
-router.put('/student/put:id', async (req, res) => {
+router.put('/student/put/:id', async (req, res) => {
   try {
     const student = await Student.findByIdAndUpdate(req.params.id, req.body, { new: true });
     res.json(student);
@@ -33,7 +33,7 @@ router.put('/student/put:id', async (req, res) => {
 });
 
 // Delete a student
-router.delete('/student/delete:id', async (req, res) => {
+router.delete('/student/delete/:id', async (req, res) => {
   try {
     const student = await Student.findByIdAndRemove(req.params.id);
     res.json(student);

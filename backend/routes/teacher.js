@@ -23,7 +23,7 @@ router.get('/teacher/get', async (req, res) => {
 });
 
 // Update a teacher
-router.put('/teacher/put:id', async (req, res) => {
+router.put('/teacher/put/:id', async (req, res) => {
   try {
     const teacher = await Teacher.findByIdAndUpdate(req.params.id, req.body, { new: true });
     res.json(teacher);
@@ -33,7 +33,7 @@ router.put('/teacher/put:id', async (req, res) => {
 });
 
 // Delete a teacher
-router.delete('/teacher/delete:id', async (req, res) => {
+router.delete('/teacher/delete/:id', async (req, res) => {
   try {
     const teacher = await Teacher.findByIdAndRemove(req.params.id);
     res.json(teacher);

@@ -30,8 +30,8 @@ mongoose.connect(conn_str, {
 });
 
 // routes
-app.use('/teacher', studentRoutes);
-app.use('/student', teacherRoutes);
+app.use('/api/tasks', studentRoutes);
+app.use('/api/tasks', teacherRoutes);
 
 // listen for requests
 app.listen(process.env.PORT, () => {
