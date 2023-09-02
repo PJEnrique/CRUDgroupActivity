@@ -35,11 +35,22 @@ router.put('/teacher/put/:id', async (req, res) => {
 // Delete a teacher
 router.delete('/teacher/delete/:id', async (req, res) => {
   try {
-    const teacher = await Teacher.findByIdAndRemove(req.params.id);
+    const teacher = await Teacher.findByIdAndDelete(req.params.id);
     res.json(teacher);
     console.log("deleted successfully");
   } catch (error) {
     res.status(404).json({ error: error.message });
+  }
+});
+
+// Delete All teacher
+router.delete('/teacher/deleteAll', async (req, res) => {
+  try {
+    const teacher = await Teacher.deleteMany(req.params.id);
+    res.json(teacher);
+    console.log("All data are deleted successfully");
+  } catch (error) {
+    res.status(500).json({error: error.message});
   }
 });
 

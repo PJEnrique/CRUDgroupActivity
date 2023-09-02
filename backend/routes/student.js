@@ -43,6 +43,17 @@ router.delete('/student/delete/:id', async (req, res) => {
   }
 });
 
+// Delete All teacher
+router.delete('/student/deleteAll', async (req, res) => {
+  try {
+    const student = await Student.deleteMany(req.params.id);
+    res.json(student);
+    console.log("All data are deleted successfully");
+  } catch (error) {
+    res.status(500).json({error: error.message});
+  }
+});
+
 
 module.exports = router
 
