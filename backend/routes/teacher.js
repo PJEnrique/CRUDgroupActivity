@@ -22,7 +22,7 @@ router.get('/teacher/get', async (req, res) => {
   }
 });
 // Read one teachers
-router.get('/teacher/get/:id', async (req, res) => {
+router.get('/teacher/getOne/:id', async (req, res) => {
   try {
     const teachers = await Teacher.find();
     res.json(teachers);
