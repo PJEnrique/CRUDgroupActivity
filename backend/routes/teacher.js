@@ -21,6 +21,15 @@ router.get('/teacher/get', async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 });
+// Read one teachers
+router.get('/teacher/get/:id', async (req, res) => {
+  try {
+    const teachers = await Teacher.find();
+    res.json(teachers);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
 
 // Update a teacher
 router.put('/teacher/put/:id', async (req, res) => {
