@@ -43,7 +43,7 @@ router.delete('/student/delete/:id', async (req, res) => {
   }
 });
 
-// Delete All teacher
+// Delete All student
 router.delete('/student/deleteAll', async (req, res) => {
   try {
     const student = await Student.deleteMany(req.params.id);
